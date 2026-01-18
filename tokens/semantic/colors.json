@@ -1,0 +1,48 @@
+{
+  "color": {
+    "accent": {
+      "primary": { "value": "{color.primitive.orange.500}" },
+      "secondary": { "value": "{color.primitive.gold.400}" },
+      "tertiary": { "value": "{color.primitive.gold.300}" },
+      "muted": { "value": "{color.primitive.orange.700}" }
+    },
+
+    "status": {
+      "success": {
+        "DEFAULT": { "value": "{color.primitive.emerald.500}" },
+        "light": { "value": "{color.primitive.emerald.400}" },
+        "dark": { "value": "{color.primitive.emerald.600}" },
+        "subtle": { "value": "{color.primitive.emerald.50}" }
+      },
+      "warning": {
+        "DEFAULT": { "value": "{color.primitive.amber.500}" },
+        "light": { "value": "{color.primitive.amber.400}" },
+        "dark": { "value": "{color.primitive.amber.600}" },
+        "subtle": { "value": "{color.primitive.amber.50}" }
+      },
+      "error": {
+        "DEFAULT": { "value": "{color.primitive.red.500}" },
+        "light": { "value": "{color.primitive.red.400}" },
+        "dark": { "value": "{color.primitive.red.600}" },
+        "subtle": { "value": "{color.primitive.red.50}" }
+      },
+      "info": {
+        "DEFAULT": { "value": "{color.primitive.blue.500}" },
+        "light": { "value": "{color.primitive.blue.400}" },
+        "dark": { "value": "{color.primitive.blue.600}" },
+        "subtle": { "value": "{color.primitive.blue.50}" }
+      }
+    },
+
+    "chart": {
+      "1": { "value": "{color.primitive.orange.500}" },
+      "2": { "value": "{color.primitive.gold.400}" },
+      "3": { "value": "{color.primitive.emerald.500}" },
+      "4": { "value": "{color.primitive.blue.500}" },
+      "5": { "value": "{color.primitive.violet.500}" },
+      "6": { "value": "{color.primitive.pink.500}" },
+      "7": { "value": "{color.primitive.cyan.500}" },
+      "8": { "value": "{color.primitive.amber.500}" }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "theme": {
+    "bg": {
+      "primary": { "value": "{color.primitive.carbon.500}" },
+      "secondary": { "value": "{color.primitive.carbon.400}" },
+      "tertiary": { "value": "{color.primitive.carbon.300}" },
+      "elevated": { "value": "{color.primitive.carbon.200}" },
+      "canvas": { "value": "{color.primitive.carbon.600}" },
+      "subtle": { "value": "{color.primitive.carbon.100}" },
+      "inverse": { "value": "{color.primitive.frost.300}" },
+      "overlay": { "value": "rgba(0, 0, 0, 0.5)" },
+
+      "glass": {
+        "primary": { "value": "rgba(16, 16, 16, 0.75)" },
+        "secondary": { "value": "rgba(16, 16, 16, 0.88)" },
+        "heavy": { "value": "rgba(16, 16, 16, 0.96)" },
+        "modal": { "value": "rgba(16, 16, 16, 0.92)" }
+      },
+
+      "accent": {
+        "subtle": { "value": "rgba(255, 107, 53, 0.1)" },
+        "muted": { "value": "rgba(255, 107, 53, 0.2)" },
+        "emphasis": { "value": "{color.primitive.orange.500}" }
+      },
+
+      "status": {
+        "success": { "value": "rgba(16, 185, 129, 0.1)" },
+        "warning": { "value": "rgba(245, 158, 11, 0.1)" },
+        "error": { "value": "rgba(239, 68, 68, 0.1)" },
+        "info": { "value": "rgba(59, 130, 246, 0.1)" }
+      }
+    },
+
+    "text": {
+      "primary": { "value": "{color.primitive.white}" },
+      "secondary": { "value": "#B8BFC5" },
+      "tertiary": { "value": "#8A9199" },
+      "muted": { "value": "#6B7178" },
+      "disabled": { "value": "#4A5258" },
+      "inverse": { "value": "{color.primitive.carbon.500}" },
+      "accent": { "value": "{color.primitive.orange.500}" },
+      "onAccent": { "value": "{color.primitive.white}" },
+
+      "status": {
+        "success": { "value": "{color.primitive.emerald.400}" },
+        "warning": { "value": "{color.primitive.amber.400}" },
+        "error": { "value": "{color.primitive.red.400}" },
+        "info": { "value": "{color.primitive.blue.400}" }
+      },
+
+      "link": {
+        "DEFAULT": { "value": "{color.primitive.orange.400}" },
+        "hover": { "value": "{color.primitive.orange.300}" },
+        "visited": { "value": "{color.primitive.orange.600}" }
+      }
+    },
+
+    "border": {
+      "primary": { "value": "rgba(255, 255, 255, 0.1)" },
+      "secondary": { "value": "rgba(255, 255, 255, 0.05)" },
+      "tertiary": { "value": "rgba(255, 255, 255, 0.03)" },
+      "accent": { "value": "rgba(255, 107, 53, 0.5)" },
+      "accentStrong": { "value": "{color.primitive.orange.500}" },
+      "focus": { "value": "{color.primitive.orange.500}" },
+      "disabled": { "value": "rgba(255, 255, 255, 0.05)" },
+
+      "status": {
+        "success": { "value": "rgba(16, 185, 129, 0.5)" },
+        "warning": { "value": "rgba(245, 158, 11, 0.5)" },
+        "error": { "value": "rgba(239, 68, 68, 0.5)" },
+        "info": { "value": "rgba(59, 130, 246, 0.5)" }
+      },
+
+      "glass": { "value": "rgba(255, 255, 255, 0.08)" }
+    },
+
+    "shadow": {
+      "sm": { "value": "0 1px 2px rgba(0, 0, 0, 0.3)" },
+      "md": { "value": "0 4px 8px rgba(0, 0, 0, 0.4)" },
+      "lg": { "value": "0 8px 16px rgba(0, 0, 0, 0.5)" },
+      "xl": { "value": "0 16px 32px rgba(0, 0, 0, 0.6)" },
+
+      "card": { "value": "0 8px 16px rgba(255, 107, 53, 0.15), 0 0 0 1px rgba(255, 107, 53, 0.1)" },
+      "cardHover": { "value": "0 12px 24px rgba(255, 107, 53, 0.2), 0 0 20px rgba(255, 107, 53, 0.15), 0 0 0 1px rgba(255, 107, 53, 0.2)" },
+
+      "glow": { "value": "0 0 20px rgba(255, 107, 53, 0.4)" },
+      "glowStrong": { "value": "0 0 40px rgba(255, 107, 53, 0.5)" }
+    },
+
+    "gradient": {
+      "accent": { "value": "linear-gradient(135deg, rgba(255, 107, 53, 0.9) 0%, rgba(255, 159, 28, 0.9) 100%)" },
+      "accentHover": { "value": "linear-gradient(135deg, rgba(255, 107, 53, 0.96) 0%, rgba(255, 159, 28, 0.96) 100%)" },
+      "accentStrong": { "value": "linear-gradient(135deg, #FF6B35 0%, #FF9F1C 100%)" },
+      "glass": { "value": "linear-gradient(135deg, rgba(21, 21, 21, 0.9) 0%, rgba(26, 26, 26, 0.7) 100%)" },
+      "glassAccent": { "value": "linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 159, 28, 0.05) 100%)" },
+      "success": { "value": "linear-gradient(135deg, #10b981 0%, #059669 100%)" },
+      "warning": { "value": "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)" },
+      "error": { "value": "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)" },
+      "info": { "value": "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)" }
+    },
+
+    "scrollbar": {
+      "track": { "value": "{color.primitive.carbon.400}" },
+      "thumb": { "value": "rgba(100, 100, 100, 0.3)" },
+      "thumbHover": { "value": "rgba(100, 100, 100, 0.5)" }
+    }
+  }
+}

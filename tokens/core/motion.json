@@ -1,0 +1,64 @@
+{
+  "motion": {
+    "duration": {
+      "instant": { "value": "0ms" },
+      "fastest": { "value": "50ms" },
+      "faster": { "value": "100ms" },
+      "fast": { "value": "150ms" },
+      "normal": { "value": "200ms" },
+      "moderate": { "value": "250ms" },
+      "slow": { "value": "300ms" },
+      "slower": { "value": "400ms" },
+      "slowest": { "value": "500ms" },
+      "deliberate": { "value": "700ms" }
+    },
+
+    "easing": {
+      "linear": { "value": "linear" },
+      "ease": { "value": "ease" },
+      "easeIn": { "value": "cubic-bezier(0.4, 0, 1, 1)" },
+      "easeOut": { "value": "cubic-bezier(0, 0, 0.2, 1)" },
+      "easeInOut": { "value": "cubic-bezier(0.4, 0, 0.2, 1)" },
+
+      "accelerate": {
+        "min": { "value": "cubic-bezier(0.8, 0, 1, 1)" },
+        "mid": { "value": "cubic-bezier(0.9, 0.1, 1, 0.2)" },
+        "max": { "value": "cubic-bezier(1, 0, 1, 1)" }
+      },
+      "decelerate": {
+        "min": { "value": "cubic-bezier(0, 0, 0.2, 1)" },
+        "mid": { "value": "cubic-bezier(0.1, 0.9, 0.2, 1)" },
+        "max": { "value": "cubic-bezier(0, 0, 0, 1)" }
+      },
+      "smooth": { "value": "cubic-bezier(0.33, 0, 0.67, 1)" },
+      "smoothMax": { "value": "cubic-bezier(0.8, 0, 0.1, 1)" },
+      "bounce": { "value": "cubic-bezier(0.68, -0.55, 0.265, 1.55)" },
+      "spring": { "value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)" }
+    },
+
+    "transition": {
+      "fast": { "value": "all 150ms cubic-bezier(0.4, 0, 0.2, 1)" },
+      "normal": { "value": "all 200ms cubic-bezier(0.4, 0, 0.2, 1)" },
+      "slow": { "value": "all 300ms cubic-bezier(0.4, 0, 0.2, 1)" },
+      "colors": { "value": "color, background-color, border-color 200ms ease" },
+      "opacity": { "value": "opacity 200ms ease" },
+      "transform": { "value": "transform 200ms cubic-bezier(0.4, 0, 0.2, 1)" },
+      "shadow": { "value": "box-shadow 200ms ease" }
+    }
+  },
+
+  "animation": {
+    "spin": { "value": "spin 1s linear infinite" },
+    "ping": { "value": "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite" },
+    "pulse": { "value": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite" },
+    "bounce": { "value": "bounce 1s infinite" },
+    "fadeIn": { "value": "fadeIn 200ms ease-out" },
+    "fadeOut": { "value": "fadeOut 200ms ease-in" },
+    "slideUp": { "value": "slideUp 300ms ease-out" },
+    "slideDown": { "value": "slideDown 300ms ease-out" },
+    "slideLeft": { "value": "slideLeft 300ms ease-out" },
+    "slideRight": { "value": "slideRight 300ms ease-out" },
+    "scaleIn": { "value": "scaleIn 200ms ease-out" },
+    "scaleOut": { "value": "scaleOut 200ms ease-in" }
+  }
+}

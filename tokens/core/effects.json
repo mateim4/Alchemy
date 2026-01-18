@@ -1,0 +1,55 @@
+{
+  "blur": {
+    "none": { "value": "0" },
+    "xs": { "value": "4px" },
+    "sm": { "value": "8px" },
+    "md": { "value": "12px" },
+    "lg": { "value": "16px" },
+    "xl": { "value": "24px" },
+    "2xl": { "value": "40px" },
+    "3xl": { "value": "64px" }
+  },
+
+  "opacity": {
+    "0": { "value": "0" },
+    "5": { "value": "0.05" },
+    "10": { "value": "0.1" },
+    "15": { "value": "0.15" },
+    "20": { "value": "0.2" },
+    "25": { "value": "0.25" },
+    "30": { "value": "0.3" },
+    "40": { "value": "0.4" },
+    "50": { "value": "0.5" },
+    "60": { "value": "0.6" },
+    "70": { "value": "0.7" },
+    "75": { "value": "0.75" },
+    "80": { "value": "0.8" },
+    "85": { "value": "0.85" },
+    "90": { "value": "0.9" },
+    "95": { "value": "0.95" },
+    "100": { "value": "1" }
+  },
+
+  "zIndex": {
+    "hide": { "value": "-1" },
+    "base": { "value": "0" },
+    "docked": { "value": "10" },
+    "dropdown": { "value": "1000" },
+    "sticky": { "value": "1100" },
+    "banner": { "value": "1200" },
+    "overlay": { "value": "1300" },
+    "modal": { "value": "1400" },
+    "popover": { "value": "1500" },
+    "tooltip": { "value": "1600" },
+    "toast": { "value": "1700" },
+    "max": { "value": "9999" }
+  },
+
+  "borderWidth": {
+    "0": { "value": "0px" },
+    "1": { "value": "1px" },
+    "2": { "value": "2px" },
+    "4": { "value": "4px" },
+    "8": { "value": "8px" }
+  }
+}
