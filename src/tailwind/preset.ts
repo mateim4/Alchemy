@@ -1,7 +1,10 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 /**
  * Alchemy Design System Tailwind Preset
+ *
+ * Mobile-first responsive design with desktop support.
  *
  * @example
  * ```js
@@ -15,6 +18,24 @@ import type { Config } from 'tailwindcss';
 const alchemyPreset: Partial<Config> = {
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
+    // Override default screens with mobile-first breakpoints
+    screens: {
+      xs: '320px',   // Extra small phones
+      sm: '480px',   // Small phones
+      md: '768px',   // Tablets
+      lg: '1024px',  // Laptops/Desktops
+      xl: '1280px',  // Large desktops
+      '2xl': '1536px', // Extra large screens
+      // Touch-specific breakpoints
+      'touch': { raw: '(hover: none) and (pointer: coarse)' },
+      'mouse': { raw: '(hover: hover) and (pointer: fine)' },
+      // Orientation
+      'portrait': { raw: '(orientation: portrait)' },
+      'landscape': { raw: '(orientation: landscape)' },
+      // Reduced motion
+      'motion-safe': { raw: '(prefers-reduced-motion: no-preference)' },
+      'motion-reduce': { raw: '(prefers-reduced-motion: reduce)' },
+    },
     extend: {
       colors: {
         // Primitive Colors
@@ -32,7 +53,7 @@ const alchemyPreset: Partial<Config> = {
         },
         frost: {
           50: '#ffffff',
-          100: '#fdfdfff',
+          100: '#fdfdff',
           200: '#fafaff',
           300: '#F7F7FF',
           400: '#EDEDF5',
@@ -66,10 +87,12 @@ const alchemyPreset: Partial<Config> = {
           800: '#92400e',
           900: '#78350f',
         },
-        // Semantic colors
+        // Semantic colors (dynamic via CSS vars)
         accent: {
           DEFAULT: 'var(--color-accent-primary)',
           secondary: 'var(--color-accent-secondary)',
+          light: 'var(--color-accent-light)',
+          deep: 'var(--color-accent-deep)',
         },
         success: {
           DEFAULT: 'var(--color-status-success-DEFAULT)',
@@ -98,18 +121,26 @@ const alchemyPreset: Partial<Config> = {
           tertiary: 'var(--theme-bg-tertiary)',
           elevated: 'var(--theme-bg-elevated)',
           glass: 'var(--theme-bg-glass-primary)',
+          'glass-secondary': 'var(--theme-bg-glass-secondary)',
+          'glass-heavy': 'var(--theme-bg-glass-heavy)',
+          'accent-subtle': 'var(--theme-bg-accent-subtle)',
+          'accent-muted': 'var(--theme-bg-accent-muted)',
         },
         text: {
           primary: 'var(--theme-text-primary)',
           secondary: 'var(--theme-text-secondary)',
           tertiary: 'var(--theme-text-tertiary)',
           muted: 'var(--theme-text-muted)',
+          disabled: 'var(--theme-text-disabled)',
           accent: 'var(--theme-text-accent)',
+          'on-accent': 'var(--theme-text-onAccent)',
         },
         border: {
           primary: 'var(--theme-border-primary)',
           secondary: 'var(--theme-border-secondary)',
           accent: 'var(--theme-border-accent)',
+          'accent-strong': 'var(--theme-border-accentStrong)',
+          focus: 'var(--theme-border-focus)',
           glass: 'var(--theme-border-glass)',
         },
       },
@@ -119,7 +150,7 @@ const alchemyPreset: Partial<Config> = {
       },
       fontSize: {
         xs: ['0.625rem', { lineHeight: '1' }],        // 10px
-        sm: ['0.75rem', { lineHeight: '1' }],         // 12px
+        sm: ['0.75rem', { lineHeight: '1.4' }],       // 12px
         base: ['0.875rem', { lineHeight: '1.5' }],    // 14px
         md: ['1rem', { lineHeight: '1.5' }],          // 16px
         lg: ['1.125rem', { lineHeight: '1.5' }],      // 18px
@@ -161,6 +192,41 @@ const alchemyPreset: Partial<Config> = {
         '2xl': '40px',
         '3xl': '64px',
       },
+      // Mobile touch target sizes (WCAG 2.5.5)
+      minWidth: {
+        touch: '44px',
+        'touch-comfortable': '48px',
+        'touch-large': '56px',
+      },
+      minHeight: {
+        touch: '44px',
+        'touch-comfortable': '48px',
+        'touch-large': '56px',
+        'mobile-input': '48px',
+        'mobile-button': '48px',
+        'mobile-nav': '56px',
+        'mobile-header': '56px',
+      },
+      height: {
+        touch: '44px',
+        'touch-comfortable': '48px',
+        'touch-large': '56px',
+        'mobile-input': '48px',
+        'mobile-button': '48px',
+        'mobile-nav': '56px',
+        'mobile-header': '56px',
+      },
+      spacing: {
+        // Safe area insets for notched devices
+        'safe-top': 'env(safe-area-inset-top, 0px)',
+        'safe-right': 'env(safe-area-inset-right, 0px)',
+        'safe-bottom': 'env(safe-area-inset-bottom, 0px)',
+        'safe-left': 'env(safe-area-inset-left, 0px)',
+        // Mobile-specific spacing
+        'screen-padding': '16px',
+        'card-mobile': '16px',
+        'section-gap': '24px',
+      },
       transitionDuration: {
         instant: '0ms',
         fastest: '50ms',
@@ -199,9 +265,12 @@ const alchemyPreset: Partial<Config> = {
         'fade-out': 'fadeOut 200ms ease-in',
         'slide-up': 'slideUp 300ms ease-out',
         'slide-down': 'slideDown 300ms ease-out',
+        'slide-left': 'slideLeft 300ms ease-out',
+        'slide-right': 'slideRight 300ms ease-out',
         'scale-in': 'scaleIn 200ms ease-out',
         'scale-out': 'scaleOut 200ms ease-in',
         shimmer: 'shimmer 2s linear infinite',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -220,6 +289,14 @@ const alchemyPreset: Partial<Config> = {
           from: { opacity: '0', transform: 'translateY(-20px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
+        slideLeft: {
+          from: { opacity: '0', transform: 'translateX(20px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideRight: {
+          from: { opacity: '0', transform: 'translateX(-20px)' },
+          to: { opacity: '1', transform: 'translateX(0)' },
+        },
         scaleIn: {
           from: { opacity: '0', transform: 'scale(0.95)' },
           to: { opacity: '1', transform: 'scale(1)' },
@@ -232,10 +309,141 @@ const alchemyPreset: Partial<Config> = {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: 'var(--theme-shadow-glow)' },
+          '50%': { boxShadow: 'var(--theme-shadow-glowStrong)' },
+        },
+      },
+      // Container configuration for responsive design
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '1.5rem',
+          lg: '2rem',
+          xl: '2.5rem',
+          '2xl': '3rem',
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Custom plugin for Alchemy utilities
+    plugin(function ({ addUtilities, addComponents }) {
+      // Glass morphism utilities
+      addUtilities({
+        '.glass': {
+          background: 'var(--theme-bg-glass-primary)',
+          backdropFilter: 'blur(var(--blur-xl, 24px))',
+          '-webkit-backdrop-filter': 'blur(var(--blur-xl, 24px))',
+          border: '1px solid var(--theme-border-glass)',
+        },
+        '.glass-secondary': {
+          background: 'var(--theme-bg-glass-secondary)',
+          backdropFilter: 'blur(var(--blur-2xl, 40px))',
+          '-webkit-backdrop-filter': 'blur(var(--blur-2xl, 40px))',
+          border: '1px solid var(--theme-border-glass)',
+        },
+        '.glass-heavy': {
+          background: 'var(--theme-bg-glass-heavy)',
+          backdropFilter: 'blur(var(--blur-3xl, 64px))',
+          '-webkit-backdrop-filter': 'blur(var(--blur-3xl, 64px))',
+          border: '1px solid var(--theme-border-glass)',
+        },
+        // Text gradient utility
+        '.text-gradient': {
+          background: 'var(--theme-gradient-accentStrong)',
+          '-webkit-background-clip': 'text',
+          'background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+        },
+        // Touch-friendly utilities
+        '.touch-target': {
+          minWidth: '44px',
+          minHeight: '44px',
+        },
+        '.touch-target-comfortable': {
+          minWidth: '48px',
+          minHeight: '48px',
+        },
+        // Safe area padding
+        '.safe-area-inset': {
+          paddingTop: 'env(safe-area-inset-top)',
+          paddingRight: 'env(safe-area-inset-right)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+          paddingLeft: 'env(safe-area-inset-left)',
+        },
+        // Hide scrollbar but keep functionality
+        '.scrollbar-hide': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+        // Custom scrollbar styling
+        '.scrollbar-styled': {
+          '&::-webkit-scrollbar': {
+            width: '8px',
+            height: '8px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: 'var(--theme-scrollbar-track)',
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'var(--theme-scrollbar-thumb)',
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'var(--theme-scrollbar-thumbHover)',
+          },
+        },
+      });
+
+      // Mobile-first component patterns
+      addComponents({
+        '.mobile-container': {
+          width: '100%',
+          paddingLeft: '16px',
+          paddingRight: '16px',
+          '@screen sm': {
+            paddingLeft: '24px',
+            paddingRight: '24px',
+          },
+          '@screen lg': {
+            maxWidth: '1200px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          },
+        },
+        '.mobile-stack': {
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+          '@screen md': {
+            flexDirection: 'row',
+            gap: '24px',
+          },
+        },
+        '.mobile-grid': {
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: '16px',
+          '@screen sm': {
+            gridTemplateColumns: 'repeat(2, 1fr)',
+          },
+          '@screen lg': {
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '24px',
+          },
+          '@screen xl': {
+            gridTemplateColumns: 'repeat(4, 1fr)',
+          },
+        },
+      });
+    }),
+  ],
 };
 
 export default alchemyPreset;

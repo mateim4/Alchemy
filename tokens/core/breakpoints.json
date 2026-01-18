@@ -1,0 +1,42 @@
+{
+  "breakpoint": {
+    "xs": { "value": "320px", "comment": "Extra small phones" },
+    "sm": { "value": "480px", "comment": "Small phones" },
+    "md": { "value": "768px", "comment": "Tablets" },
+    "lg": { "value": "1024px", "comment": "Laptops/Desktops" },
+    "xl": { "value": "1280px", "comment": "Large desktops" },
+    "2xl": { "value": "1536px", "comment": "Extra large screens" }
+  },
+
+  "container": {
+    "xs": { "value": "100%", "comment": "Full width on mobile" },
+    "sm": { "value": "460px" },
+    "md": { "value": "720px" },
+    "lg": { "value": "960px" },
+    "xl": { "value": "1200px" },
+    "2xl": { "value": "1440px" }
+  },
+
+  "touchTarget": {
+    "minimum": { "value": "44px", "comment": "WCAG 2.5.5 minimum touch target" },
+    "comfortable": { "value": "48px", "comment": "Comfortable touch target" },
+    "large": { "value": "56px", "comment": "Large touch target for primary actions" }
+  },
+
+  "safeArea": {
+    "top": { "value": "env(safe-area-inset-top, 0px)" },
+    "right": { "value": "env(safe-area-inset-right, 0px)" },
+    "bottom": { "value": "env(safe-area-inset-bottom, 0px)" },
+    "left": { "value": "env(safe-area-inset-left, 0px)" }
+  },
+
+  "mobileSpacing": {
+    "screenPadding": { "value": "16px", "comment": "Default screen edge padding" },
+    "cardPadding": { "value": "16px", "comment": "Card content padding on mobile" },
+    "sectionGap": { "value": "24px", "comment": "Gap between sections" },
+    "inputHeight": { "value": "48px", "comment": "Mobile input height" },
+    "buttonHeight": { "value": "48px", "comment": "Mobile button height" },
+    "navHeight": { "value": "56px", "comment": "Bottom navigation height" },
+    "headerHeight": { "value": "56px", "comment": "Mobile header height" }
+  }
+}

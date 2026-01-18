@@ -9,6 +9,7 @@ export * from './Switch';
 export * from './Avatar';
 export * from './Toast';
 export * from './ThemeProvider';
+export * from './ColorPicker';
 
 // Utilities
 export * from '../utils';
