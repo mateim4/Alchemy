@@ -34,6 +34,29 @@
       }
     },
 
+    "status": {
+      "danger": {
+        "DEFAULT": { "value": "{color.primitive.vivid.hotPink}" },
+        "light": { "value": "{color.primitive.pink.400}" },
+        "dark": { "value": "{color.primitive.pink.600}" },
+        "subtle": { "value": "{color.primitive.pink.50}" }
+      }
+    },
+
+    "vivid": {
+      "success": { "value": "{color.primitive.vivid.mint}" },
+      "warning": { "value": "{color.primitive.vivid.gold}" },
+      "info": { "value": "{color.primitive.vivid.ocean}" },
+      "danger": { "value": "{color.primitive.vivid.hotPink}" },
+      "tropical": { "value": "{color.primitive.vivid.tropical}" },
+      "sky": { "value": "{color.primitive.vivid.sky}" }
+    },
+
+    "accent": {
+      "alpha": { "value": "rgba(255, 107, 53, 0.25)", "comment": "25% opacity accent for interactive states" },
+      "weak": { "value": "rgba(255, 107, 53, 0.12)", "comment": "12% opacity accent for subtle backgrounds" }
+    },
+
     "chart": {
       "1": { "value": "{color.primitive.orange.500}" },
       "2": { "value": "{color.primitive.gold.400}" },

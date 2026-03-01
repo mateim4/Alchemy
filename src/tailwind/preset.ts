@@ -87,12 +87,23 @@ const alchemyPreset: Partial<Config> = {
           800: '#92400e',
           900: '#78350f',
         },
+        // Vivid utility colors (neon/high-contrast palette)
+        vivid: {
+          mint: 'var(--color-primitive-vivid-mint, #91ff75)',
+          tropical: 'var(--color-primitive-vivid-tropical, #0affc6)',
+          sky: 'var(--color-primitive-vivid-sky, #34daff)',
+          ocean: 'var(--color-primitive-vivid-ocean, #00a8e8)',
+          gold: 'var(--color-primitive-vivid-gold, #fdf399)',
+          'hot-pink': 'var(--color-primitive-vivid-hotPink, #ff5cbb)',
+        },
         // Semantic colors (dynamic via CSS vars)
         accent: {
           DEFAULT: 'var(--color-accent-primary)',
           secondary: 'var(--color-accent-secondary)',
           light: 'var(--color-accent-light)',
           deep: 'var(--color-accent-deep)',
+          alpha: 'var(--color-accent-alpha, rgba(255, 107, 53, 0.25))',
+          weak: 'var(--color-accent-weak, rgba(255, 107, 53, 0.12))',
         },
         success: {
           DEFAULT: 'var(--color-status-success-DEFAULT)',
@@ -114,6 +125,11 @@ const alchemyPreset: Partial<Config> = {
           light: 'var(--color-status-info-light)',
           dark: 'var(--color-status-info-dark)',
         },
+        danger: {
+          DEFAULT: 'var(--color-status-danger-DEFAULT, #ff5cbb)',
+          light: 'var(--color-status-danger-light)',
+          dark: 'var(--color-status-danger-dark)',
+        },
         // Theme-aware colors
         bg: {
           primary: 'var(--theme-bg-primary)',
@@ -123,6 +139,7 @@ const alchemyPreset: Partial<Config> = {
           glass: 'var(--theme-bg-glass-primary)',
           'glass-secondary': 'var(--theme-bg-glass-secondary)',
           'glass-heavy': 'var(--theme-bg-glass-heavy)',
+          'glass-hover': 'var(--theme-bg-glass-hover)',
           'accent-subtle': 'var(--theme-bg-accent-subtle)',
           'accent-muted': 'var(--theme-bg-accent-muted)',
         },
@@ -182,6 +199,10 @@ const alchemyPreset: Partial<Config> = {
         'card-hover': 'var(--theme-shadow-cardHover)',
         glow: 'var(--theme-shadow-glow)',
         'glow-strong': 'var(--theme-shadow-glowStrong)',
+        modal: 'var(--theme-shadow-modal)',
+        'glow-sm': 'var(--shadow-glow-accent-sm, 0 0 10px rgba(255, 107, 53, 0.3))',
+        'glow-md': 'var(--shadow-glow-accent-md, 0 0 20px rgba(255, 107, 53, 0.4))',
+        'glow-lg': 'var(--shadow-glow-accent-lg, 0 0 40px rgba(255, 107, 53, 0.5))',
       },
       backdropBlur: {
         xs: '4px',
@@ -349,6 +370,99 @@ const alchemyPreset: Partial<Config> = {
           backdropFilter: 'blur(var(--blur-3xl, 64px))',
           '-webkit-backdrop-filter': 'blur(var(--blur-3xl, 64px))',
           border: '1px solid var(--theme-border-glass)',
+        },
+        // Glass panel — hoverable glass surface
+        '.glass-panel': {
+          background: 'var(--theme-bg-glass-primary)',
+          backdropFilter: 'blur(var(--blur-xl, 24px))',
+          '-webkit-backdrop-filter': 'blur(var(--blur-xl, 24px))',
+          border: '1px solid var(--theme-border-glass)',
+          borderRadius: 'var(--radius-xl, 12px)',
+          '&:hover': {
+            background: 'var(--theme-bg-glass-hover)',
+          },
+          '&.no-hover:hover': {
+            background: 'var(--theme-bg-glass-primary)',
+          },
+        },
+        // Glass card — elevated glass surface with shadow
+        '.glass-card': {
+          background: 'var(--theme-bg-glass-primary)',
+          backdropFilter: 'blur(var(--blur-xl, 24px))',
+          '-webkit-backdrop-filter': 'blur(var(--blur-xl, 24px))',
+          border: '1px solid var(--theme-border-glass)',
+          borderRadius: 'var(--radius-2xl, 16px)',
+          boxShadow: 'var(--theme-shadow-card)',
+          transition: 'all 200ms ease',
+          '&:hover': {
+            boxShadow: 'var(--theme-shadow-cardHover)',
+            transform: 'translateY(-2px)',
+          },
+          '&.no-hover:hover': {
+            transform: 'none !important',
+            boxShadow: 'var(--theme-shadow-card) !important',
+          },
+          '&.glass-modal': {
+            background: 'var(--theme-bg-glass-modal)',
+            boxShadow: 'var(--theme-shadow-modal)',
+          },
+          '&.glass-modal:hover': {
+            transform: 'none !important',
+            boxShadow: 'var(--theme-shadow-modal) !important',
+          },
+        },
+        // Glass button — gradient accent button
+        '.glass-button': {
+          background: 'var(--theme-gradient-accent)',
+          color: 'var(--theme-text-onAccent)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: 'var(--radius-xl, 12px)',
+          padding: '8px 16px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          transition: 'all 200ms ease',
+          boxShadow: 'var(--theme-shadow-md), var(--theme-shadow-glow)',
+          '&:hover': {
+            boxShadow: 'var(--theme-shadow-lg), var(--theme-shadow-glowStrong)',
+            transform: 'translateY(-1px)',
+          },
+          '&:active': {
+            transform: 'translateY(0)',
+            boxShadow: 'var(--theme-shadow-sm)',
+          },
+        },
+        // Glass input — frosted input field
+        '.glass-input': {
+          background: 'rgba(100, 100, 100, 0.05)',
+          border: '1px solid var(--theme-border-primary)',
+          borderRadius: 'var(--radius-xl, 12px)',
+          padding: '10px 16px',
+          color: 'var(--theme-text-primary)',
+          transition: 'all 200ms ease',
+          '&::placeholder': {
+            color: 'var(--theme-text-muted)',
+            opacity: '1',
+          },
+          '&:hover': {
+            borderColor: 'var(--theme-border-secondary)',
+            background: 'rgba(100, 100, 100, 0.08)',
+          },
+          '&:focus': {
+            outline: 'none',
+            borderColor: 'var(--theme-border-accent)',
+            boxShadow: '0 0 0 3px var(--color-accent-alpha, rgba(255, 107, 53, 0.25))',
+            background: 'rgba(100, 100, 100, 0.1)',
+          },
+        },
+        // Glow utilities
+        '.glow-sm': {
+          boxShadow: 'var(--shadow-glow-accent-sm, 0 0 10px rgba(255, 107, 53, 0.3))',
+        },
+        '.glow-md': {
+          boxShadow: 'var(--shadow-glow-accent-md, 0 0 20px rgba(255, 107, 53, 0.4))',
+        },
+        '.glow-lg': {
+          boxShadow: 'var(--shadow-glow-accent-lg, 0 0 40px rgba(255, 107, 53, 0.5))',
         },
         // Text gradient utility
         '.text-gradient': {

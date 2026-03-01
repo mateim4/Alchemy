@@ -160,6 +160,15 @@
         "700": { "value": "#be185d" },
         "800": { "value": "#9d174d" },
         "900": { "value": "#831843" }
+      },
+
+      "vivid": {
+        "mint": { "value": "#91ff75", "comment": "Neon green — vivid success indicator" },
+        "tropical": { "value": "#0affc6", "comment": "Neon teal — decorative accent" },
+        "sky": { "value": "#34daff", "comment": "Bright sky blue — decorative accent" },
+        "ocean": { "value": "#00a8e8", "comment": "Ocean blue — vivid info indicator" },
+        "gold": { "value": "#fdf399", "comment": "Pale gold — vivid warning indicator" },
+        "hotPink": { "value": "#ff5cbb", "comment": "Hot pink — vivid danger indicator" }
       }
     }
   }
