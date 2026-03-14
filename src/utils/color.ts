@@ -32,7 +32,9 @@ export interface AccentPalette {
   deep: string;
   textOnAccent: string;
   textAccentDark: string;
+  textAccentSecondaryDark: string;
   textAccentLight: string;
+  textAccentSecondaryLight: string;
   glowColor: string;
 }
 
@@ -363,16 +365,18 @@ export function deriveAccentPalette(accentHex: string): AccentPalette {
   const boostedSaturation = Math.min(1, s * 1.15);
   const primaryL = Math.max(0.35, Math.min(0.55, l));
 
-  // Generate palette variants
+  // Generate palette variants — 8° hue shift keeps gradient cohesive
   const primary = rgbToHex(hslToRgb(h, boostedSaturation, primaryL));
-  const secondary = rgbToHex(hslToRgb((h + 15) % 360, boostedSaturation, primaryL));
+  const secondary = rgbToHex(hslToRgb((h + 8) % 360, boostedSaturation, primaryL));
   const light = rgbToHex(hslToRgb(h, Math.min(1, s * 1.05), Math.min(0.65, primaryL + 0.12)));
   const deep = rgbToHex(hslToRgb(h, Math.min(1, s * 1.2), Math.max(0.28, primaryL - 0.1)));
 
   // Text colors for accessibility
   const textOnAccent = getContrastTextColor(primary);
   const textAccentDark = ensureReadableOnDark(primary);
+  const textAccentSecondaryDark = ensureReadableOnDark(secondary);
   const textAccentLight = ensureReadableOnLight(primary);
+  const textAccentSecondaryLight = ensureReadableOnLight(secondary);
 
   // Glow color (slightly transparent primary)
   const glowColor = alpha(primary, 0.4);
@@ -384,7 +388,9 @@ export function deriveAccentPalette(accentHex: string): AccentPalette {
     deep,
     textOnAccent,
     textAccentDark,
+    textAccentSecondaryDark,
     textAccentLight,
+    textAccentSecondaryLight,
     glowColor,
   };
 }

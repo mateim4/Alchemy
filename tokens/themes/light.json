@@ -11,12 +11,17 @@
       "overlay": { "value": "rgba(0, 0, 0, 0.3)" },
 
       "glass": {
-        "primary": { "value": "rgba(247, 247, 255, 0.7)" },
-        "secondary": { "value": "rgba(247, 247, 255, 0.85)" },
-        "heavy": { "value": "rgba(247, 247, 255, 0.95)" },
+        "primary": { "value": "{glass.background.light.primary}" },
+        "secondary": { "value": "{glass.background.light.medium}" },
+        "heavy": { "value": "{glass.background.light.heavy}" },
         "modal": { "value": "rgba(247, 247, 255, 0.92)" },
         "hover": { "value": "rgba(255, 255, 255, 0.90)" }
       },
+
+      "input": { "value": "rgba(0, 0, 0, 0.03)" },
+      "interactive": { "value": "rgba(0, 0, 0, 0.04)" },
+      "interactiveHover": { "value": "rgba(0, 0, 0, 0.06)" },
+      "interactiveActive": { "value": "rgba(0, 0, 0, 0.09)" },
 
       "accent": {
         "subtle": { "value": "rgba(255, 107, 53, 0.08)" },
@@ -39,19 +44,19 @@
       "muted": { "value": "#6B7178" },
       "disabled": { "value": "#9CA3AF" },
       "inverse": { "value": "{color.primitive.white}" },
-      "accent": { "value": "{color.primitive.orange.600}" },
+      "accent": { "value": "{color.primitive.orange.700}" },
       "onAccent": { "value": "{color.primitive.white}" },
 
       "status": {
-        "success": { "value": "{color.primitive.emerald.600}" },
+        "success": { "value": "{color.primitive.emerald.700}" },
         "warning": { "value": "{color.primitive.amber.600}" },
         "error": { "value": "{color.primitive.red.600}" },
         "info": { "value": "{color.primitive.blue.600}" }
       },
 
       "link": {
-        "DEFAULT": { "value": "{color.primitive.orange.500}" },
-        "hover": { "value": "{color.primitive.orange.600}" },
+        "DEFAULT": { "value": "{color.primitive.orange.700}" },
+        "hover": { "value": "{color.primitive.orange.800}" },
         "visited": { "value": "{color.primitive.orange.700}" }
       }
     },

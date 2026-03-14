@@ -95,7 +95,12 @@ function applyThemeToDom(
   root.classList.toggle('dark', resolvedMode === 'dark');
 
   // Apply accent color CSS variables
-  const { primary, secondary, light, deep, textOnAccent, textAccentDark, textAccentLight, glowColor } = palette;
+  const {
+    primary, secondary, light, deep, textOnAccent,
+    textAccentDark, textAccentSecondaryDark,
+    textAccentLight, textAccentSecondaryLight,
+    glowColor,
+  } = palette;
 
   root.style.setProperty('--color-accent-primary', primary);
   root.style.setProperty('--color-accent-secondary', secondary);
@@ -104,23 +109,51 @@ function applyThemeToDom(
 
   // Text colors based on mode
   const textAccent = resolvedMode === 'dark' ? textAccentDark : textAccentLight;
+  const textAccentSecondary = resolvedMode === 'dark' ? textAccentSecondaryDark : textAccentSecondaryLight;
   root.style.setProperty('--theme-text-accent', textAccent);
   root.style.setProperty('--theme-text-onAccent', textOnAccent);
 
-  // Gradients
-  const mid = mixHex(primary, secondary, 0.5);
+  // Narrowed gradient: blend 35% back toward primary for subtle range
+  const gradientEnd = mixHex(primary, secondary, 0.65);
+  const mid = mixHex(primary, gradientEnd, 0.50);
+
+  // 3-stop gradient matching Scout's approach
   root.style.setProperty(
     '--theme-gradient-accent',
-    `linear-gradient(135deg, ${primary} 0%, ${secondary} 100%)`
+    `linear-gradient(90deg, ${primary} 0%, ${mid} 50%, ${gradientEnd} 100%)`
   );
   root.style.setProperty(
     '--theme-gradient-accentHover',
-    `linear-gradient(135deg, ${primary} 0%, ${mid} 50%, ${secondary} 100%)`
+    `linear-gradient(90deg, ${deep}, ${primary})`
   );
   root.style.setProperty(
     '--theme-gradient-accentStrong',
     `linear-gradient(135deg, ${primary} 0%, ${secondary} 100%)`
   );
+
+  // Additional gradient vars (Scout compat)
+  root.style.setProperty(
+    '--gradient-primary',
+    `linear-gradient(90deg, ${primary} 0%, ${mid} 50%, ${gradientEnd} 100%)`
+  );
+  root.style.setProperty(
+    '--gradient-primary-hover',
+    `linear-gradient(90deg, ${deep}, ${primary})`
+  );
+  root.style.setProperty(
+    '--bg-accent-gradient',
+    `linear-gradient(90deg, ${primary} 0%, ${mid} 50%, ${gradientEnd} 100%)`
+  );
+
+  // Text gradient for card titles — using readable variants with narrowing
+  const textGradientEnd = mixHex(textAccent, textAccentSecondary, 0.65);
+  const textMid = mixHex(textAccent, textGradientEnd, 0.50);
+  root.style.setProperty(
+    '--gradient-card-title',
+    `linear-gradient(90deg, ${textAccent} 0%, ${textMid} 50%, ${textGradientEnd} 100%)`
+  );
+  root.style.setProperty('--title-gradient-from', textAccent);
+  root.style.setProperty('--title-gradient-to', textAccentSecondary);
 
   // Glow effects
   const primaryRgb = hexToRgb(primary);
@@ -145,6 +178,16 @@ function applyThemeToDom(
       '--theme-shadow-cardHover',
       `0 12px 24px rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.2), 0 0 20px rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.15), 0 0 0 1px rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.2)`
     );
+
+    // Accent alpha variants
+    root.style.setProperty(
+      '--accent-color-alpha',
+      `rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.25)`
+    );
+    root.style.setProperty(
+      '--accent-color-weak',
+      `rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.12)`
+    );
   } else {
     // Light mode: neutral shadows
     root.style.setProperty('--theme-shadow-glow', '0 0 20px rgba(0, 0, 0, 0.1)');
@@ -161,6 +204,10 @@ function applyThemeToDom(
       '--theme-shadow-cardHover',
       '0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.08)'
     );
+
+    // Accent alpha variants — neutral in light mode
+    root.style.setProperty('--accent-color-alpha', 'rgba(0, 0, 0, 0.08)');
+    root.style.setProperty('--accent-color-weak', 'rgba(0, 0, 0, 0.04)');
   }
 
   // Border accent colors
@@ -182,6 +229,17 @@ function applyThemeToDom(
       `rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, ${resolvedMode === 'dark' ? 0.2 : 0.15})`
     );
     root.style.setProperty('--theme-bg-accent-emphasis', primary);
+
+    // Selection highlights
+    const { r, g, b } = primaryRgb;
+    root.style.setProperty(
+      '--bg-row-selected',
+      resolvedMode === 'dark' ? `rgba(${r}, ${g}, ${b}, 0.08)` : `rgba(${r}, ${g}, ${b}, 0.07)`
+    );
+    root.style.setProperty(
+      '--bg-row-selected-hover',
+      resolvedMode === 'dark' ? `rgba(${r}, ${g}, ${b}, 0.14)` : `rgba(${r}, ${g}, ${b}, 0.12)`
+    );
   }
 }
 

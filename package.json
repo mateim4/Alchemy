@@ -1,6 +1,6 @@
 {
   "name": "@alchemy-ui/core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A modern, tokenized design system with multi-theme support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "build": "npm run build:tokens && npm run build:css && npm run build:components",
-    "build:tokens": "style-dictionary build --config ./config/style-dictionary.config.js",
+    "build:tokens": "node scripts/build-tokens.mjs",
     "build:css": "node scripts/build-css.js",
     "build:components": "tsup src/components/index.ts --format esm,cjs --dts --outDir dist",
     "dev": "npm run build:tokens && tsup src/components/index.ts --format esm,cjs --dts --outDir dist --watch",

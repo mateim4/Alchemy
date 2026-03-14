@@ -11,12 +11,17 @@
       "overlay": { "value": "rgba(0, 0, 0, 0.5)" },
 
       "glass": {
-        "primary": { "value": "rgba(16, 16, 16, 0.75)" },
-        "secondary": { "value": "rgba(16, 16, 16, 0.88)" },
-        "heavy": { "value": "rgba(16, 16, 16, 0.96)" },
+        "primary": { "value": "{glass.background.dark.primary}" },
+        "secondary": { "value": "{glass.background.dark.medium}" },
+        "heavy": { "value": "{glass.background.dark.heavy}" },
         "modal": { "value": "rgba(16, 16, 16, 0.92)" },
         "hover": { "value": "rgba(19, 23, 25, 0.90)" }
       },
+
+      "input": { "value": "rgba(255, 255, 255, 0.05)" },
+      "interactive": { "value": "rgba(255, 255, 255, 0.05)" },
+      "interactiveHover": { "value": "rgba(255, 255, 255, 0.08)" },
+      "interactiveActive": { "value": "rgba(255, 255, 255, 0.12)" },
 
       "accent": {
         "subtle": { "value": "rgba(255, 107, 53, 0.1)" },
@@ -36,7 +41,7 @@
       "primary": { "value": "{color.primitive.white}" },
       "secondary": { "value": "#B8BFC5" },
       "tertiary": { "value": "#8A9199" },
-      "muted": { "value": "#6B7178" },
+      "muted": { "value": "#8A9199" },
       "disabled": { "value": "#4A5258" },
       "inverse": { "value": "{color.primitive.carbon.500}" },
       "accent": { "value": "{color.primitive.orange.500}" },

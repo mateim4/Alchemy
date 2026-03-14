@@ -133,7 +133,7 @@ export const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
         className={cn('flex items-center', overlapSizes[size], className)}
         {...props}
       >
-        {visibleChildren.map((child, index) =>
+        {visibleChildren.map((child) =>
           React.isValidElement(child)
             ? React.cloneElement(child as React.ReactElement<AvatarProps>, {
                 size,

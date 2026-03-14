@@ -1,0 +1,27 @@
+{
+  "glass": {
+    "blur": {
+      "light": { "value": "blur(10px)" },
+      "medium": { "value": "blur(20px)" },
+      "heavy": { "value": "blur(40px)" },
+      "extreme": { "value": "blur(60px)" }
+    },
+    "background": {
+      "light": {
+        "primary": { "value": "rgba(247, 247, 255, 0.7)" },
+        "medium": { "value": "rgba(247, 247, 255, 0.85)" },
+        "heavy": { "value": "rgba(247, 247, 255, 0.95)" }
+      },
+      "dark": {
+        "primary": { "value": "rgba(16, 16, 16, 0.75)" },
+        "medium": { "value": "rgba(16, 16, 16, 0.88)" },
+        "heavy": { "value": "rgba(16, 16, 16, 0.96)" }
+      },
+      "accent": {
+        "light": { "value": "rgba(255, 107, 53, 0.05)" },
+        "medium": { "value": "rgba(255, 107, 53, 0.1)" },
+        "heavy": { "value": "rgba(255, 107, 53, 0.15)" }
+      }
+    }
+  }
+}

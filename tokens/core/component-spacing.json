@@ -1,0 +1,56 @@
+{
+  "component": {
+    "button": {
+      "sm": {
+        "paddingX": { "value": "0.75rem" },
+        "paddingY": { "value": "0.375rem" },
+        "fontSize": { "value": "0.875rem" }
+      },
+      "md": {
+        "paddingX": { "value": "1rem" },
+        "paddingY": { "value": "0.5rem" },
+        "fontSize": { "value": "1rem" }
+      },
+      "lg": {
+        "paddingX": { "value": "1.25rem" },
+        "paddingY": { "value": "0.625rem" },
+        "fontSize": { "value": "1.125rem" }
+      }
+    },
+    "card": {
+      "sm": { "padding": { "value": "0.75rem" } },
+      "md": { "padding": { "value": "1rem" } },
+      "lg": { "padding": { "value": "1.5rem" } }
+    },
+    "input": {
+      "sm": {
+        "paddingX": { "value": "0.5rem" },
+        "paddingY": { "value": "0.375rem" },
+        "fontSize": { "value": "0.875rem" }
+      },
+      "md": {
+        "paddingX": { "value": "0.75rem" },
+        "paddingY": { "value": "0.5rem" },
+        "fontSize": { "value": "1rem" }
+      },
+      "lg": {
+        "paddingX": { "value": "1rem" },
+        "paddingY": { "value": "0.625rem" },
+        "fontSize": { "value": "1.125rem" }
+      }
+    },
+    "gap": {
+      "tight": { "value": "0.5rem", "comment": "8px — compact lists" },
+      "normal": { "value": "1rem", "comment": "16px — standard sections" },
+      "loose": { "value": "1.5rem", "comment": "24px — major sections" },
+      "section": { "value": "2rem", "comment": "32px — page sections" }
+    },
+    "icon": {
+      "xs": { "value": "12" },
+      "sm": { "value": "16" },
+      "md": { "value": "20" },
+      "lg": { "value": "24" },
+      "xl": { "value": "32" }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../utils/cn';
-import { Spinner24Regular } from '@fluentui/react-icons';
+import { SpinnerIos20Regular } from '@fluentui/react-icons';
 
 const buttonVariants = cva(
   // Base styles
@@ -137,7 +137,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading ? (
           <>
-            <Spinner24Regular className="h-4 w-4 animate-spin" />
+            <SpinnerIos20Regular className="h-4 w-4 animate-spin" />
             <span>{children}</span>
           </>
         ) : (
