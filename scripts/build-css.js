@@ -250,12 +250,12 @@ body {
   border-radius: var(--radius-xl, 12px);
 }
 
-.glass-panel:hover {
-  background: var(--theme-bg-glass-hover);
-}
+/* Glass panels do NOT change on hover by default.
+   Use .glass-panel-interactive for panels that should respond to hover. */
 
-.glass-panel.no-hover:hover {
-  background: var(--theme-bg-glass-primary);
+.glass-panel-interactive:hover {
+  background: var(--theme-bg-glass-hover);
+  border-color: var(--theme-border-accent);
 }
 
 /* ========================================
